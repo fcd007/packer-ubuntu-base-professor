@@ -25,6 +25,6 @@ source "amazon-ebs" "imagem-base" {
     Extra         = "{{ .SourceAMITags.TagName }}"
   }
 
-  ami_regions = ["us-east-2", "us-west-2"]
+  # ami_regions = ["us-east-2", "us-west-2"]
   source_ami           = data.amazon-ami.ubuntu.id
 }
