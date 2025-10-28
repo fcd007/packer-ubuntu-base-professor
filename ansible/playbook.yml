@@ -1,11 +1,10 @@
 ---
-- name: Instala o docker
-  hosts: all
+- name: Update web servers
+  hosts: webservers
   remote_user: ubuntu
-  become: true
 
-  vars: 
-    docker_install_compose: true
-
-  roles:
-    - geerlingguy.docker
+  tasks:
+  - name: Ensure apache is at the latest version
+    ansible.builtin.apt:
+      name: httpd
+      state: latest
