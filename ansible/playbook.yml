@@ -2,9 +2,10 @@
 - name: Update web servers
   hosts: webservers
   remote_user: ubuntu
+  become: true
 
   tasks:
   - name: Ensure apache is at the latest version
     ansible.builtin.apt:
-      name: httpd
+      name: apache2
       state: latest
